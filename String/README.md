@@ -5,27 +5,27 @@
 ```c++
 // Pag: 250
 auto split(string str, string separator) {
-	vector<std::string> tokens;
-	
-	for ( auto i = strtok(&str[0], separator.data());
-		  i != NULL;
-		  i = strtok(NULL, separator.data())	) {
-		
-		tokens.push_back(i);
-	}
-	
-	return tokens;
+    vector<std::string> tokens;
+
+    for ( auto i = strtok(&str[0], separator.data());
+            i != NULL;
+            i = strtok(NULL, separator.data())	) {
+        
+        tokens.push_back(i);
+    }
+
+    return tokens;
 }
 
 int main() {
-	std::string str{ "The---*---quick---*---brown---*---fox" };
-	
-	auto tokens = split(str, "---");
-	
-	for(auto i: tokens) {
-		cout<<i<<endl;
-	}
-	return 0;
+    std::string str{ "The---*---quick---*---brown---*---fox" };
+
+    auto tokens = split(str, "---");
+
+    for(auto i: tokens) {
+        cout<<i<<endl;
+    }
+    return 0;
 }
 ```
 
@@ -78,26 +78,26 @@ cout<<wstr.data()<<endl;
 using namespace std;
 
 string toString(int number) {
-	ostringstream ss;
-	ss<<number;
-	return ss.str();
+    ostringstream ss;
+    ss<<number;
+    return ss.str();
 }
 
 string toString(double number) {
-	ostringstream ss;
-	ss<<number;
-	return ss.str();
+    ostringstream ss;
+    ss<<number;
+    return ss.str();
 }
 
 int main() {
-	int numberInt = 1000;
-	string intStr = toString(numberInt);
+    int numberInt = 1000;
+    string intStr = toString(numberInt);
 
-	double numberDouble = 3.14159;
-	string doubleStr = toString(numberDouble);
+    double numberDouble = 3.14159;
+    string doubleStr = toString(numberDouble);
 
-	cout<<intStr<<" "<<doubleStr<<endl;
-	return 0;
+    cout<<intStr<<" "<<doubleStr<<endl;
+    return 0;
 }
 ```
 
@@ -106,13 +106,13 @@ int main() {
 ```c++
 template<class T>
 string toString(const T& x) {
-	ostringstream ss;
-	ss << x;
-	return ss.str();
+    ostringstream ss;
+    ss << x;
+    return ss.str();
 }
 
 int main() {
-	
+
     int number = 100;
 
     string str = toString<int>(number);
@@ -131,9 +131,9 @@ int main() {
 string foo {"Bar"};
 char c = ' ';
 try {
-	c = foo.at(9);
+    c = foo.at(9);
 } catch(out_of_range e) {
-	cout<<"Error: Index fuera de Rango"<<endl;
+    cout<<"Error: Index fuera de Rango"<<endl;
 }
 cout<<c<<endl;
 ```
@@ -151,29 +151,29 @@ cout<<c<<endl;
 
 ```c++
 bool isPrefix(string str, string prefix) {
-	
-	auto ans = mismatch(
-		prefix.begin(), prefix.end(),
-		str.begin(), str.end()
-	);
-		
-	return prefix.size() <= str.size() && (ans.first == prefix.end());
+
+    auto ans = mismatch(
+        prefix.begin(), prefix.end(),
+        str.begin(), str.end()
+    );
+
+    return prefix.size() <= str.size() && (ans.first == prefix.end());
 }
 
 bool isPrefix(string str, string prefix) {
-	return prefix == str.substr(0, prefix.size());
+    return prefix == str.substr(0, prefix.size());
 }
 
 int main() {
-	
-	string prefix {"Foo"};
-	string str {"FooBar"};
-	
-	bool ans = isPrefix(str, prefix);
-		
-	cout<<ans<<endl;
-	
-	return 0;
+
+    string prefix {"Foo"};
+    string str {"FooBar"};
+
+    bool ans = isPrefix(str, prefix);
+        
+    cout<<ans<<endl;
+
+    return 0;
 }
 ```
 
@@ -181,13 +181,13 @@ int main() {
 
 ```c++
 string hello = "Hello World";
-	
+
 for(auto i: hello) {
-	cout<<i<<endl;
+    cout<<i<<endl;
 }
 
 for(size_t i = 0; i < hello.size(); ++i){
-	cout<<hello[i]<<endl;
+    cout<<hello[i]<<endl;
 }
 ```
 
@@ -218,6 +218,29 @@ long num5 = stol(ten_hex, 0, 0); // Returns 10 as it detects the leading 0x
 
 ```
 
+### toString de una Estructura
+
+```c++
+// Pag: 174
+
+struct Point {
+	int x;
+	int y;
+};
+
+ostream & operator<<(ostream& os, Point point) {
+	t.y<<")"<<endl;
+}
+
+int main() {	
+	Point point{10, 30};
+
+	cout<<point<<endl;
+
+	return 0;
+}
+```
+
 ### Encontrar una secuencia en un string
 
 ```c++
@@ -227,10 +250,23 @@ std::string str = "Curiosity killed the cat";
 auto it = str.find("cat");
 
 if (it != std::string::npos){
-	std::cout << "Found at position: " << it << '\n';
+    std::cout << "Found at position: " << it << '\n';
 } else {
-	std::cout << "Not found!\n";
+    std::cout << "Not found!\n";
 }
+```
+
+### Pasar letra de Minuscula a Mayuscula
+
+```c++
+// Si la letra esta en mayuscula sigue en mayuscula
+char letter = 'z'; 
+int mask = 0xDF;
+
+char letterUpper = letter & mask;
+
+cout<<letterUpper<<endl;
+// 'Z'
 ```
 
 # Bibliografia
