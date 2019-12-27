@@ -101,7 +101,8 @@ int main() {
 }
 ```
 
-### To String <template> (Parte 3)
+### To String - template - (Parte 3)
+
 ```c++
 template<class T>
 string toString(const T& x) {
@@ -112,13 +113,13 @@ string toString(const T& x) {
 
 int main() {
 	
-	int number = 100;
-	
-	string str = toString<int>(number);
-	
-	cout<<str<<endl;
-	
-	return 0;
+    int number = 100;
+
+    string str = toString<int>(number);
+
+    cout<<str<<endl;
+
+    return 0;
 }
 ```
 
@@ -231,3 +232,7 @@ if (it != std::string::npos){
 	std::cout << "Not found!\n";
 }
 ```
+
+# Bibliografia
+
+[[1]](https://books.goalkicker.com/CPlusPlusBook/) "Free C++ Programming Book", Books.goalkicker.com, 2019. Available: https://books.goalkicker.com/CPlusPlusBook/. [Accessed: 27- Dec- 2019]
