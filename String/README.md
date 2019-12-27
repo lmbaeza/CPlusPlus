@@ -224,20 +224,21 @@ long num5 = stol(ten_hex, 0, 0); // Returns 10 as it detects the leading 0x
 // Pag: 174
 
 struct Point {
-	int x;
-	int y;
+    int x;
+    int y;
 };
 
 ostream & operator<<(ostream& os, Point point) {
-	t.y<<")"<<endl;
+    return os<<"Point ("<<point.x<<", "<<point.y<<")"<<endl;
 }
 
 int main() {	
-	Point point{10, 30};
+    Point point{10, 30};
 
-	cout<<point<<endl;
+    cout<<point<<endl;
 
-	return 0;
+    return 0;
+};
 }
 ```
 
